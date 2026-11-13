@@ -60,11 +60,6 @@ h2 {
   padding: 0;
 }
 
-.piste {
-  padding: 10px 0;
-  border-bottom: 1px solid #2b2a3d;
-}
-
 .bouton-icone,
 .bouton-lecture {
   border: none;
@@ -110,19 +105,105 @@ h2 {
 
 
 /* ---------- TODO 2 — L'en-tête ---------- */
-
+.entete {
+  display: flex; /* active flexbox */
+  justify-content: space-between; /* répartit le logo et le menu horizontalement */
+  align-items: center; /* aligne verticalement au centre du conteneur */
+  padding: 1rem 1.25rem; /* gestion de l'espace à l'intérieur de l'élément */ 
+}
 
 
 /* ---------- TODO 3 — Le morceau en cours ---------- */
-
+.en-cours {
+  display: flex;
+  flex-direction: column; /* empile verticalement les elements */
+  align-items: center; /* centre les éléments enfants horizontalement */
+  text-align: center; /* centre le texte à l'intérieur de l'élément */
+  gap: 1rem; /* ajoute un espace régulier entre chaque élément enfant du conteneur */  
+} 
 
 
 /* ---------- TODO 4 — Une piste de la playlist ---------- */
-
-
+.piste {
+  display: flex; 
+  align-items: center; /* centre les éléments enfants verticalement */
+  gap: 0.5rem; /* créer un espace entre les enfants direct (ici entre le numero et le titre de la piste) */
+  /* déjà présent, regrouper ici pour éviter les doublons de class */
+  padding: 10px 0;
+  border-bottom: 1px solid #2b2a3d; 
+}
+.piste-infos {
+  flex-grow: 1; /* permet à l'élément de grandir et d'occuper toute la place disponible dans son conteneur */
+  min-width: 0; /* permet à l'élément de devenir plus étroit que la largeur minimale imposée par son contenu */
+}
+.piste-titre {
+  white-space: nowrap; /* interdit le retour a la ligne */
+  overflow: hidden; /* masque le texte qui dépasse */
+  text-overflow: ellipsis; /* affiche ... pour le texte coupé */
+}
 
 /* ---------- TODO 5 — La barre de contrôle ---------- */
-
-
+.progression {
+  display: flex;
+  align-items: center; /* centre les éléments enfants verticalement */
+}
+.barre {
+  flex-grow: 1; /* permet à l'élément de grandir et d'occuper toute la place disponible dans son conteneur */
+}
+.boutons {
+  display: flex;
+  justify-content: center; /* répartis les bouton horizontalement */
+  align-items: center; /* centre les éléments enfants verticalement */
+  gap: 1.5rem; /* créer un espace régulier entre les boutons */
+}
+/* ajout de la class contenu ici pour que la media query fonctionne */
+.contenu {
+  display: flex;
+  flex-direction: column; /* empile verticalement les elements */
+}
 
 /* ---------- TODO 6 — Grand écran (768px et plus) ---------- */
+@media (min-width: 768px) {
+  .contenu {
+    flex-direction: row; /* place les elements scote à cote  */ 
+  }
+  .playlist {
+    flex-grow: 1; /* permet à l'élément de grandir et d'occuper toute la place disponible dans son conteneur */
+  }
+  .en-cours {
+  flex: 0 0 50%; /* reserve la moitier de la place disponible */
+  }
+}
+
+/*================================================================
+                    QUESTIONS DE RECUL
+=================================================================*/
+
+/* QUESTION 1 */
+/*
+align-items: center permet d'aligner les éléments sur l'axe secondaire.
+
+Par défaut, Flexbox utilise flex-direction: row. Les éléments sont donc placés horizontalement.
+L'axe principal est horizontal et l'axe secondaire est vertical.
+Dans .entete, il centre donc les éléments verticalement.
+
+Dans .en-cours, flex-direction: column empile les éléments verticalement.
+L'axe principal devient vertical et l'axe secondaire devient horizontal.
+align-items: center centre donc les éléments horizontalement.
+*/
+
+/* QUESTION 2 */
+/*
+Flex grow: 1; permet a l'element de grandir et d'occuper toute la place disponible dans son conteneur.
+ Sans flex-grow, la barre conserverait sa taille de base et ne récupèrait plus l'espace libre disponible.
+/*
+Si on ajoute flex-grow: 1 aux deux temps, les trois éléments se partagent l'espace libre de manière équitable.
+La barre ne sera donc plus la seule à grandir.
+*/
+ 
+/* QUESTION 3 */
+/* 
+On commence par le mobile car il est plus simple de construire une mise en page simple, puis de l'adapter aux écrans plus grands.
+Avec une media query min-width, on ajoute des adaptations uniquement lorsque la largeur de l'écran le permet.
+Cela évite de devoir retirer des éléments ou corriger une mise en page trop complexe pour les petits écrans.
+*/ 
