@@ -113,13 +113,19 @@ h2 {
 .entete {
   display: flex; /* active flexbox */
   justify-content: space-between; /* répartit le logo et le menu horizontalement */
-  align-items: center; /* aligne verticalement au centre  */
+  align-items: center; /* aligne verticalement au centre du conteneur */
   padding: 1rem 1.25rem; /* gestion de l'espace à l'intérieur de l'élément */ 
 }
 
 
 /* ---------- TODO 3 — Le morceau en cours ---------- */
-
+.en-cours {
+  display: flex;
+  flex-direction: column; /* empile verticalement les elements */
+  align-items: center; /* aligne les éléments horizontalement et au centre du conteneur */
+  text-align: center; /* centre le texte à l'intérieur de l'élément */
+  gap: 1rem; /* ajoute un espace régulier entre chaque élément enfant du conteneur */  
+} 
 
 
 /* ---------- TODO 4 — Une piste de la playlist ---------- */
