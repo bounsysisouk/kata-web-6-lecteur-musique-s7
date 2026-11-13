@@ -122,15 +122,27 @@ h2 {
 .en-cours {
   display: flex;
   flex-direction: column; /* empile verticalement les elements */
-  align-items: center; /* aligne les éléments horizontalement et au centre du conteneur */
+  align-items: center; /* centre les éléments enfants horizontalement */
   text-align: center; /* centre le texte à l'intérieur de l'élément */
   gap: 1rem; /* ajoute un espace régulier entre chaque élément enfant du conteneur */  
 } 
 
 
 /* ---------- TODO 4 — Une piste de la playlist ---------- */
-
-
+.piste {
+  display: flex; 
+  align-items: center; /* centre les éléments enfants verticalement */
+  gap: 0.5rem;
+}
+.piste-infos {
+  flex-grow: 1; /* permet à l'élément de grandir et d'occuper toute la place disponible dans son conteneur */
+  min-width: 0; /* permet à l'élément de devenir plus étroit que la largeur minimale imposée par son contenu */
+}
+.piste-titre {
+  white-space: nowrap; /* interdit le retour a la ligne */
+  overflow: hidden; /* masque le texte qui dépasse */
+  text-overflow: ellipsis; /* affiche ... pour le texte coupé */
+}
 
 /* ---------- TODO 5 — La barre de contrôle ---------- */
 
