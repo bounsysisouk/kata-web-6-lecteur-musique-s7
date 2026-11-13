@@ -110,7 +110,12 @@ h2 {
 
 
 /* ---------- TODO 2 — L'en-tête ---------- */
-
+.entete {
+  display: flex; /* active flexbox */
+  justify-content: space-between; /* répartit le logo et le menu horizontalement */
+  align-items: center; /* aligne verticalement au centre  */
+  padding: 1rem 1.25rem; /* gestion de l'espace à l'intérieur de l'élément */ 
+}
 
 
 /* ---------- TODO 3 — Le morceau en cours ---------- */
