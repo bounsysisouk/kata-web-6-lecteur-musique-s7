@@ -172,5 +172,38 @@ h2 {
   }
   .en-cours {
   flex: 0 0 50%; /* reserve la moitier de la place disponible */
+  }
 }
-}
+
+/*================================================================
+                    QUESTIONS DE RECUL
+=================================================================*/
+
+/* QUESTION 1 */
+/*
+align-items: center permet d'aligner les éléments sur l'axe secondaire.
+
+Par défaut, Flexbox utilise flex-direction: row. Les éléments sont donc placés horizontalement.
+L'axe principal est horizontal et l'axe secondaire est vertical.
+Dans .entete, il centre donc les éléments verticalement.
+
+Dans .en-cours, flex-direction: column empile les éléments verticalement.
+L'axe principal devient vertical et l'axe secondaire devient horizontal.
+align-items: center centre donc les éléments horizontalement.
+*/
+
+/* QUESTION 2 */
+/*
+Flex grow: 1; permet a l'element de grandir et d'occuper toute la place disponible dans son conteneur.
+ Sans flex-grow, la barre conserverait sa taille de base et ne récupèrait plus l'espace libre disponible.
+/*
+Si on ajoute flex-grow: 1 aux deux temps, les trois éléments se partagent l'espace libre de manière équitable.
+La barre ne sera donc plus la seule à grandir.
+*/
+ 
+/* QUESTION 3 */
+/* 
+On commence par le mobile car il est plus simple de construire une mise en page simple, puis de l'adapter aux écrans plus grands.
+Avec une media query min-width, on ajoute des adaptations uniquement lorsque la largeur de l'écran le permet.
+Cela évite de devoir retirer des éléments ou corriger une mise en page trop complexe pour les petits écrans.
+*/ 
